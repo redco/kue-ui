@@ -1,0 +1,20 @@
+version: '2'
+services:
+  kue-ui:
+    container_name: kue-ui
+    build: .
+    restart: always
+    environment:
+      - DEBUG=*
+      - REDIS_ENV_REDIS_PASS=redis
+    depends_on:
+      - redis
+    ports:
+      - "3000:3000"
+  redis:
+    container_name: redis
+    image: 'tutum/redis:latest'
+    environment:
+      - REDIS_PASS=redis
+    ports:
+      - '6379:6379'
