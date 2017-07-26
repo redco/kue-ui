@@ -3,7 +3,7 @@
 const express = require('express');
 const debug = require('debug')('app');
 const kue = require('kue');
-const ui = require('kue-ui');
+const kueUiExpress = require('kue-ui-express');
 
 const port = 3000;
 
@@ -25,17 +25,11 @@ queue.on('error', function(err) {
     debug('Queue error', err);
 });
 
-ui.setup({
-    apiURL: '/api',
-    baseURL: '/kue',
-    updateInterval: 5000
-});
-
 const app = express();
+kueUiExpress(app, '/kue/', '/api/');
 
 app
-    .use('/api', kue.app)
-    .use('/kue', ui.app)
+    .use('/api/', kue.app)
     .listen(port);
 
 debug('Application started');
