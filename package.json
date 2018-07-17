@@ -3,20 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maZahaca/kue-ui.git"
+    "url": "https://github.com/redco/kue-ui.git"
   },
   "author": "Andrew Red",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maZahaca/kue-ui/issues"
+    "url": "https://github.com/redco/kue-ui/issues"
   },
-  "homepage": "https://github.com/maZahaca/kue-ui",
+  "homepage": "https://github.com/redco/kue-ui",
   "dependencies": {
-    "debug": "~2.2.0",
+    "debug": "^3.1.0",
     "express": "~4.13.1",
     "kue": "^0.9.6",
     "kue-ui": "^0.1.0"
