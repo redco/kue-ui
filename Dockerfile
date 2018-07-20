@@ -1,10 +1,10 @@
-FROM node:6
+FROM node:8.11.3-alpine
 
-WORKDIR /src
+WORKDIR /usr/src/app
 
-COPY package.json /src/package.json
-RUN npm install --production
+COPY package.json yarn.lock /usr/src/app/
+RUN yarn install --production --no-progress
 
-COPY . /src
+COPY . /usr/src/app
 
-CMD ["node", "/src/index.js"]
+ENTRYPOINT ["node", "/usr/src/app/index.js"]
